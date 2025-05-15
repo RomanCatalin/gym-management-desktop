@@ -1,0 +1,3 @@
+Employees=5
+Subscriptions=78
+NewThisMonth=12

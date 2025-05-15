@@ -1,0 +1,309 @@
+﻿<Window x:Class="PIUG.AngajatiWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PIUG"
+        mc:Ignorable="d"
+        Title="Employee Management"
+        Height="540"
+        Width="1080"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Title bar -->
+        <Grid Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Grid.Row="0"
+              Background="#3e2e52"
+              MouseDown="TitleBar_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Management Angajați"
+                       VerticalAlignment="Center"
+                       Margin="10,0,0,0"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       FontSize="14" />
+
+            <Button Grid.Column="1"
+                    Content="—"
+                    Width="60"
+                    Background="#663987"
+                    Foreground="White"
+                    BorderBrush="{x:Null}"
+                    FontSize="16"
+                    Click="MinimizeButton_Click"
+                    ToolTip="Minimize" />
+
+            <Button Grid.Column="2"
+                    Content="X"
+                    Width="60"
+                    Background="#5f2a87"
+                    Foreground="White"
+                    BorderBrush="{x:Null}"
+                    FontSize="16"
+                    Click="CloseButton_Click"
+                    ToolTip="Close" />
+        </Grid>
+
+        <!-- Sidebar -->
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                CornerRadius="0 0 0 10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0"
+                                     EndPoint="0.5,1">
+                    <GradientStop Color="#5f2a87"
+                                  Offset="0" />
+                    <GradientStop Color="#1c0d28"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel Margin="10"
+                        VerticalAlignment="Top">
+
+                <!-- Logo -->
+                <Image Source="C:\Users\Eu\source\repos\PIUG\Asset_15x.png"
+                       Height="100"
+                       Margin="0,10,0,40"
+                       HorizontalAlignment="Center"
+                       Stretch="Uniform" />
+
+                <!-- Buttons go here -->
+                <Button x:Name="AddButton"
+                        Content="Adăugare angajat"
+                        Click="AddAngajat_Click"
+                        FontSize="18"
+                        Background="White"
+                        Foreground="#4a3762"
+                        Margin="0,0,0,20"
+                        Height="35"
+                        FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="LoginBorder"
+                                                Background="{TemplateBinding Background}"
+                                                CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter Property="Background"
+                                                        Value="#a280be"
+                                                        TargetName="LoginBorder" />
+                                                <Setter Property="TextBlock.Foreground"
+                                                        Value="White"
+                                                        TargetName="LoginBorder" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <!-- Style omitted for brevity (you already have it) -->
+                </Button>
+
+                <Button x:Name="DeleteButton"
+                        Content="Ștergere angajat"
+                        Click="StergereAngajat_Click"
+                        FontSize="18"
+                        Background="White"
+                        Foreground="#4a3762"
+                        Margin="0,0,0,20"
+                        Height="35"
+                        FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="LoginBorder"
+                                                Background="{TemplateBinding Background}"
+                                                CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter Property="Background"
+                                                        Value="#a280be"
+                                                        TargetName="LoginBorder" />
+                                                <Setter Property="TextBlock.Foreground"
+                                                        Value="White"
+                                                        TargetName="LoginBorder" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <!-- Style omitted for brevity -->
+                </Button>
+
+                <Button x:Name="ModifyButton"
+                        Content="Modificare date angajat"
+                        Click="ModAngajat_Click"
+                        FontSize="18"
+                        Background="White"
+                        Foreground="#4a3762"
+                        Margin="0,0,0,20"
+                        Height="35"
+                        FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="LoginBorder"
+                                                Background="{TemplateBinding Background}"
+                                                CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter Property="Background"
+                                                        Value="#a280be"
+                                                        TargetName="LoginBorder" />
+                                                <Setter Property="TextBlock.Foreground"
+                                                        Value="White"
+                                                        TargetName="LoginBorder" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <!-- Style omitted for brevity -->
+                </Button>
+
+                <Button x:Name="ReturnHomeButton"
+                        Content="Revenire la HomePage"
+                        Click="RevHomePage_Click"
+                        FontSize="18"
+                        Background="White"
+                        Foreground="#4a3762"
+                        Margin="0,90,0,0"
+                        Height="35"
+                        FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="LoginBorder"
+                                                Background="{TemplateBinding Background}"
+                                                CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter Property="Background"
+                                                        Value="#a280be"
+                                                        TargetName="LoginBorder" />
+                                                <Setter Property="TextBlock.Foreground"
+                                                        Value="White"
+                                                        TargetName="LoginBorder" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <!-- Style omitted for brevity -->
+                </Button>
+            </StackPanel>
+        </Border>
+
+
+
+        <!-- Right panel for employee list -->
+        <Border x:Name="RightPanelBorder"
+                Grid.Row="1"
+                Grid.Column="1"
+                CornerRadius="0 0 10 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0"
+                                     EndPoint="0.5,1">
+                    <GradientStop Color="White"
+                                  Offset="0" />
+                    <GradientStop Color="White"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel Margin="20">
+                <!-- Search bar -->
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,0,10">
+                    <Button Content="Căutare"
+                            Width="80"
+                            Height="30"
+                            Click="CautareAbonament_Click"
+                            Background="#4a3762"
+                            Foreground="White"
+                            FontSize="14"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            FontWeight="Bold" />
+                    <TextBox x:Name="SearchBox"
+                             Width="659"
+                             Height="30"
+                             FontSize="14"
+                             Padding="5"
+                             VerticalContentAlignment="Center"
+                             TextChanged="SearchBox_TextChanged" />
+                </StackPanel>
+
+                <TextBlock x:Name="InfoBox"
+                           Text="ID  |    Nume     |    Funcție     |     Salariu       |"
+                           FontWeight="Bold"
+                           FontSize="14"
+                           Foreground="Black"
+                           Margin="5,0,0,5" />
+
+                <!-- List of employees -->
+                <ListBox x:Name="EmployeeListBox"
+                         FontSize="16"
+                         Foreground="Black"
+                         BorderBrush="#ccc"
+                         BorderThickness="1"
+                         Background="White"
+                         Height="400" />
+            </StackPanel>
+        </Border>
+    </Grid>
+
+
+</Window>
