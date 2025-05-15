@@ -88,7 +88,8 @@
                            FontSize="14" />
                     <TextBox x:Name="NameTextBox"
                              Height="30"
-                             Margin="0,5,0,15" />
+                             Margin="0,5,0,15"
+                             Width="258" />
 
                     <Label x:Name="TipLabel"
                         Content="Tip abonament"
@@ -97,29 +98,32 @@
                            FontSize="14" />
                     <ComboBox x:Name="TypeComboBox"
                               Height="30"
-                              Margin="0,5,0,15">
+                              Margin="0,5,0,15"
+                              Width="258">
                         <ComboBoxItem>Fitness</ComboBoxItem>
                         <ComboBoxItem>Fitness &amp; Group</ComboBoxItem>
                         <ComboBoxItem>One day</ComboBoxItem>
                     </ComboBox>
 
                     <Label x:Name="DateLabel"
-                        Content="Data început"
+                           Content="Dată început"
                            FontWeight="Bold"
                            Foreground="#4a3762"
                            FontSize="14" />
                     <DatePicker x:Name="StartDatePicker"
                                 Height="30"
-                                Margin="0,5,0,15" />
+                                Margin="0,5,0,15"
+                                Width="258" />
 
                     <Label x:Name="DateLabel2"
-                        Content="Data sfârșit"
+                           Content="Dată sfârșit"
                            FontWeight="Bold"
                            Foreground="#4a3762"
                            FontSize="14" />
                     <DatePicker x:Name="EndDatePicker"
                                 Height="30"
-                                Margin="0,5,0,30" />
+                                Margin="0,5,0,30"
+                                Width="258" />
 
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Right">

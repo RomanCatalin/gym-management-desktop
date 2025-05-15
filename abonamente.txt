@@ -6,7 +6,7 @@
 6|Dumitru Elena|Fitness & Group|2025-03-15|2025-04-14
 7|Stoica Vlad|Fitness|2025-05-01|2025-05-31
 8|Tudor Cristina|Fitness & Group|2025-04-20|2025-05-20
-9|Radu Florin|Fitness|2025-05-05|2025-06-04
+9|Radu Florin|Fitness|2025-05-05|2025-05-31
 10|Barbu Oana|One day|2025-05-10|2025-05-10
 11|Ilie Andreea|Fitness & Group|2025-05-01|2025-05-31
 12|Munteanu Mihai|Fitness|2025-03-01|2025-03-31

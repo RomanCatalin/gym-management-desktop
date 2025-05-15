@@ -88,7 +88,8 @@
                            FontSize="14" />
                     <TextBox x:Name="NameTextBox"
                              Height="30"
-                             Margin="0,5,0,15" />
+                             Margin="0,5,0,15"
+                             Width="260" />
 
                     <Label x:Name="PositionLabel"
                            Content="Funcție"
@@ -97,7 +98,8 @@
                            FontSize="14" />
                     <ComboBox x:Name="PositionComboBox"
                               Height="30"
-                              Margin="0,5,0,15">
+                              Margin="0,5,0,15"
+                              Width="260">
                         <ComboBoxItem>Manager</ComboBoxItem>
                         <ComboBoxItem>Antrenor</ComboBoxItem>
                         <ComboBoxItem>Curatenie</ComboBoxItem>
@@ -110,7 +112,8 @@
                            FontSize="14" />
                     <TextBox x:Name="SalaryTextBox"
                              Height="30"
-                             Margin="0,5,0,30" />
+                             Margin="0,5,0,30"
+                             Width="260" />
 
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Right">
