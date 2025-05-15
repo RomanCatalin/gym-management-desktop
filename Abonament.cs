@@ -16,7 +16,7 @@ namespace PIUG
 
         public override string ToString()
         {
-            return $"[{ID}] {PersonName} - {Type} ({StartDate:dd/MM/yyyy} - {EndDate:dd/MM/yyyy})";
+            return $"[{ID}] {PersonName} - {Type}   [  {StartDate:dd/MM/yyyy} - {EndDate:dd/MM/yyyy}  ]";
         }
 
         public string ToFileLine()

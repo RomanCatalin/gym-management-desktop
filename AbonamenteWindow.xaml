@@ -291,7 +291,7 @@
                 </StackPanel>
 
                 <TextBlock x:Name="InfoBox"
-                    Text="ID  |    Nume     |    Tip     |     Interval abonament     |"
+                    Text="ID    |                    Nume                     |                Tip                 |            Interval abonament             |"
                            FontWeight="Bold"
                            FontSize="14"
                            Foreground="Black"
@@ -302,12 +302,46 @@
                               HorizontalScrollBarVisibility="Auto">
                     <!-- sau fără Height dacă vrei să se extindă dinamic -->
                     <ListBox x:Name="EmployeeListBox"
-                         FontSize="16"
-                         Foreground="Black"
-                         BorderBrush="#ccc"
-                         BorderThickness="1"
-                         Background="White"
-                         Height="400" />
+                             FontSize="16"
+                             Foreground="Black"
+                             BorderBrush="#ccc"
+                             BorderThickness="1"
+                             Background="White"
+                             Height="400"
+                             ItemsSource="{Binding Abonamente}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0"
+                                               Text="{Binding ID}"
+                                               VerticalAlignment="Center" />
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding PersonName}"
+                                               VerticalAlignment="Center"
+                                               TextTrimming="CharacterEllipsis" />
+                                    <TextBlock Grid.Column="2"
+                                               Text="{Binding Type}"
+                                               VerticalAlignment="Center" />
+                                    <TextBlock Grid.Column="3"
+                                               VerticalAlignment="Center">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0:dd/MM/yyyy} - {1:dd/MM/yyyy}">
+                                                <Binding Path="StartDate" />
+                                                <Binding Path="EndDate" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </ScrollViewer>
             </StackPanel>
         </Border>
