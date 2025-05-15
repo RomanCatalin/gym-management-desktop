@@ -281,6 +281,7 @@
                             
                             />
                     <TextBox x:Name="SearchBox"
+                             Text="Introduceți un nume..."
                              Width="659"
                              Height="30"
                              FontSize="14"
