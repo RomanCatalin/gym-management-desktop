@@ -183,7 +183,7 @@
 
                 <StackPanel Margin="30">
                     <TextBlock x:Name="TextStatistice"
-                        Text="Statistice"
+                        Text="Statistici"
                                FontSize="28"
                                FontWeight="Bold"
                                Foreground="#5f2a87"
