@@ -20,20 +20,45 @@ namespace PIUG
     /// </summary>
     public partial class HomeWindow : Window
     {
+        private int clicksAbon = 0;
+        private int clicksAng = 0;
+        private int clicksSetari = 0;
+
+        private void RearanjareButoaneHomePage()
+        {
+
+            var butoane_contorizate= new List<(Button button, int clicks)>
+            {
+            (BTAbon, clicksAbon),(BTAng, clicksAng),(BTSetari, clicksSetari)
+            };
+
+            butoane_contorizate.Sort((a, b) => b.clicks.CompareTo(a.clicks));
+            ButtonsPanel.Children.Clear();
+
+            foreach (var (button, _) in butoane_contorizate)
+            {
+                ButtonsPanel.Children.Add(button);
+            }
+        }
+
+
+
+
+
 
         private readonly string statsFilePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\stats.txt";
         public HomeWindow()
         {
             InitializeComponent();
             LoadStatistics();
-            Apply_Theme(); 
+            Apply_Theme();
 
-        
+
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            if(Properties.Settings.Default.isRememberSettings==false)
+            if (Properties.Settings.Default.isRememberSettings == false)
             {
                 Properties.Settings.Default.isDarkMode = false;
                 Properties.Settings.Default.Save();
@@ -57,6 +82,8 @@ namespace PIUG
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {
+            clicksSetari++;
+            RearanjareButoaneHomePage();
             Settings settings = new Settings();
             settings.ShowDialog();
 
@@ -65,17 +92,33 @@ namespace PIUG
 
         private void AbonBtn_Click(object sender, RoutedEventArgs e)
         {
+            clicksAbon++;
+            RearanjareButoaneHomePage();
+
             AbonamenteWindow abonamenteWindow = new AbonamenteWindow();
-            this.Hide();
-            abonamenteWindow.Show();
+            abonamenteWindow.Owner = this;   
+            this.Hide();                     
+
+            abonamenteWindow.ShowDialog();  
+
+            this.Show();                    
+            RearanjareButoaneHomePage();
 
         }
 
         private void AngBtn_Click(object sender, RoutedEventArgs e)
         {
+            clicksAng++;
+            RearanjareButoaneHomePage();
+
             AngajatiWindow angajatiWindow = new AngajatiWindow();
-            this.Hide();
-            angajatiWindow.Show();
+            angajatiWindow.Owner = this;    
+            this.Hide();                     
+
+            angajatiWindow.ShowDialog();  
+
+            this.Show();                    
+            RearanjareButoaneHomePage();
 
         }
 

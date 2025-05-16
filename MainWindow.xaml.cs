@@ -19,13 +19,12 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-
+        InitializeComponent();
         if (!Properties.Settings.Default.isRememberSettings)
         {
             Properties.Settings.Default.isDarkMode = false;
             Properties.Settings.Default.Save();
         }
-        InitializeComponent();
         if (Properties.Settings.Default.isDarkMode)
         {
             var darkBackground = new SolidColorBrush(Color.FromRgb(44, 44, 44));
@@ -70,6 +69,20 @@ public partial class MainWindow : Window
         string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt"; // Ajustează calea după caz
         string inputName = UserNameTextBox.Text.Trim();
         string inputPassword = PasswordBox.Password;
+
+        // Validare: numele nu trebuie să conțină cifre
+        if (inputName.Any(char.IsDigit))
+        {
+            MessageBox.Show("Numele nu poate conține cifre.", "Validare nume", MessageBoxButton.OK);
+            return;
+        }
+
+        // Validare: parola nu trebuie să conțină spații
+        if (inputPassword.Contains(" "))
+        {
+            MessageBox.Show("Parola nu poate conține spații.", "Validare parola", MessageBoxButton.OK);
+            return;
+        }
 
         if (!File.Exists(filePath))
         {
@@ -119,6 +132,7 @@ public partial class MainWindow : Window
             MessageBox.Show("Eroare la procesarea fișierului: " + ex.Message, "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
+
 
 
 

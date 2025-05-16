@@ -115,8 +115,6 @@ namespace PIUG
 
         private void RevHomePage_Click(object sender, RoutedEventArgs e)
         {
-            HomeWindow homeWindow = new HomeWindow();
-            homeWindow.Show();
             this.Close(); 
 
         }

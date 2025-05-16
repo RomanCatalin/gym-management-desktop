@@ -122,218 +122,136 @@
                                        FontSize="16" />
                         </StackPanel>
                     </StackPanel>
+                    <StackPanel x:Name="ButtonsPanel"
+                                Margin="0,40,0,0"
+                                HorizontalAlignment="Center">
+                        <Button x:Name="BTAbon"
+                                Content="Abonamente"
+                                Foreground="#4a3762"
+                                Background="White"
+                                Margin="35,0,35,10"
+                                Height="45"
+                                Width="230"
+                                Click="AbonBtn_Click"
+                                Grid.Row="1"
+                                FontSize="18"
+                                FontWeight="Bold">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border x:Name="LoginBorder"
+                                                        Background="{TemplateBinding Background}"
+                                                        CornerRadius="5">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center" />
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver"
+                                                             Value="True">
+                                                        <Setter Property="Background"
+                                                                Value="#a280be"
+                                                                TargetName="LoginBorder" />
+                                                        <Setter Property="TextBlock.Foreground"
+                                                                Value="White"
+                                                                TargetName="LoginBorder" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="BTAng"
+                                Content="Angajați"
+                                Foreground="#4a3762"
+                                Background="White"
+                                Margin="35,0,35,10"
+                                Height="45"
+                                Width="230"
+                                Click="AngBtn_Click"
+                                Grid.Row="1"
+                                FontSize="18"
+                                FontWeight="Bold">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border x:Name="LoginBorder"
+                                                        Background="{TemplateBinding Background}"
+                                                        CornerRadius="5">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center" />
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver"
+                                                             Value="True">
+                                                        <Setter Property="Background"
+                                                                Value="#a280be"
+                                                                TargetName="LoginBorder" />
+                                                        <Setter Property="TextBlock.Foreground"
+                                                                Value="White"
+                                                                TargetName="LoginBorder" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <Button x:Name="BTSetari"
+                                Content="Setări"
+                                Foreground="#4a3762"
+                                Background="White"
+                                Margin="35,0,35,10"
+                                Height="45"
+                                Width="230"
+                                Click="SettingsBtn_Click"
+                                Grid.Row="1"
+                                FontSize="18"
+                                FontWeight="Bold">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border x:Name="LoginBorder"
+                                                        Background="{TemplateBinding Background}"
+                                                        CornerRadius="5">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center" />
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver"
+                                                             Value="True">
+                                                        <Setter Property="Background"
+                                                                Value="#a280be"
+                                                                TargetName="LoginBorder" />
+                                                        <Setter Property="TextBlock.Foreground"
+                                                                Value="White"
+                                                                TargetName="LoginBorder" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <!-- Aici mută cele 3 butoane (BTAbon, BTAng, BTSetari) fără să le schimbi stilul -->
+                    </StackPanel>
                 </StackPanel>
             </Border>
 
-            <!-- Abonamente button -->
-            <Button x:Name="BTAbon"
-                    Content="Abonamente"
-                    Foreground="#4a3762"
-                    Background="White"
-                    Margin="35,148,35,315"
-                    Height="45"
-                    Width="230"
-                    Click="AbonBtn_Click"
-                    Grid.Row="1"
-                    FontSize="18"
-                    FontWeight="Bold">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="LoginBorder"
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="5">
-                                        <ContentPresenter HorizontalAlignment="Center"
-                                                          VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver"
-                                                 Value="True">
-                                            <Setter Property="Background"
-                                                    Value="#a280be"
-                                                    TargetName="LoginBorder" />
-                                            <Setter Property="TextBlock.Foreground"
-                                                    Value="White"
-                                                    TargetName="LoginBorder" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
-
-            <!-- White main panel -->
-            <Border x:Name="RightBorder"
-                Grid.Row="1"
-                    Grid.Column="1"
-                    CornerRadius="0 0 10 0">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0.5,0"
-                                         EndPoint="0.5,1">
-                        <GradientStop Color="White"
-                                      Offset="0" />
-                        <GradientStop Color="White"
-                                      Offset="1" />
-                    </LinearGradientBrush>
-                </Border.Background>
-
-                <StackPanel Margin="30">
-                    <TextBlock x:Name="TextStatistice"
-                        Text="Statistici"
-                               FontSize="28"
-                               FontWeight="Bold"
-                               Foreground="#5f2a87"
-                               Margin="0 0 0 20" />
-
-                    <!-- Subsection: Employees -->
-                    <Border x:Name="R_1"
-                        Background="#f3eaff"
-                            CornerRadius="10"
-                            Padding="20"
-                            Margin="0 0 0 15">
-                        <StackPanel>
-                            <TextBlock x:Name="TextAngajati"
-                                Text="Angajați"
-                                       FontSize="18"
-                                       FontWeight="Bold"
-                                       Foreground="#4a3762" />
-                            <TextBlock x:Name="EmployeesCountText"
-                                       Text="5"
-                                       FontSize="24"
-                                       FontWeight="Bold"
-                                       Foreground="#5f2a87"
-                                       Margin="0 5 0 0" />
-                        </StackPanel>
-                    </Border>
-
-                    <!-- Subsection: Subscriptions -->
-                    <Border x:Name="R_2"
-                        Background="#f3eaff"
-                            CornerRadius="10"
-                            Padding="20"
-                            Margin="0 0 0 15">
-                        <StackPanel>
-                            <TextBlock x:Name="TextAbon"
-                                Text="Număr total de abonamente"
-                                       FontSize="18"
-                                       FontWeight="Bold"
-                                       Foreground="#4a3762" />
-                            <TextBlock x:Name="SubscriptionsCountText"
-                                       Text="78"
-                                       FontSize="24"
-                                       FontWeight="Bold"
-                                       Foreground="#5f2a87"
-                                       Margin="0 5 0 0" />
-                        </StackPanel>
-                    </Border>
-
-                    <!-- Subsection: New Subscriptions This Month -->
-                    <Border x:Name="R_3"
-                        Background="#f3eaff"
-                            CornerRadius="10"
-                            Padding="20">
-                        <StackPanel>
-                            <TextBlock x:Name="TextAbonM"
-                                Text="Număr total de abonamente noi (Luna curentă)"
-                                       FontSize="18"
-                                       FontWeight="Bold"
-                                       Foreground="#4a3762" />
-                            <TextBlock x:Name="NewSubscriptionsCountText"
-                                       Text="12"
-                                       FontSize="24"
-                                       FontWeight="Bold"
-                                       Foreground="#5f2a87"
-                                       Margin="0 5 0 0" />
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Border>
-
-            <!-- Angajati button -->
-            <Button x:Name="BTAng"
-                    Content="Angajați"
-                    Foreground="#4a3762"
-                    Background="White"
-                    Margin="35,209,35,254"
-                    Height="45"
-                    Width="230"
-                    Click="AngBtn_Click"
-                    Grid.Row="1"
-                    FontSize="18"
-                    FontWeight="Bold">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="LoginBorder"
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="5">
-                                        <ContentPresenter HorizontalAlignment="Center"
-                                                          VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver"
-                                                 Value="True">
-                                            <Setter Property="Background"
-                                                    Value="#a280be"
-                                                    TargetName="LoginBorder" />
-                                            <Setter Property="TextBlock.Foreground"
-                                                    Value="White"
-                                                    TargetName="LoginBorder" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
 
             <!-- Setari button -->
-            <Button x:Name="BTSetari"
-                    Content="Setări"
-                    Foreground="#4a3762"
-                    Background="White"
-                    Margin="35,272,35,191"
-                    Height="45"
-                    Width="230"
-                    Click="SettingsBtn_Click"
-                    Grid.Row="1"
-                    FontSize="18"
-                    FontWeight="Bold">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="LoginBorder"
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="5">
-                                        <ContentPresenter HorizontalAlignment="Center"
-                                                          VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver"
-                                                 Value="True">
-                                            <Setter Property="Background"
-                                                    Value="#a280be"
-                                                    TargetName="LoginBorder" />
-                                            <Setter Property="TextBlock.Foreground"
-                                                    Value="White"
-                                                    TargetName="LoginBorder" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
+
             <Button x:Name="BTIesire"
                     Content="Ieșire"
                     Foreground="#4a3762"
@@ -373,6 +291,94 @@
                     </Style>
                 </Button.Style>
             </Button>
+
+            <!-- White main panel -->
+            <Border x:Name="RightBorder"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    CornerRadius="0 0 10 0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0"
+                                         EndPoint="0.5,1">
+                        <GradientStop Color="White"
+                                      Offset="0" />
+                        <GradientStop Color="White"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel Margin="30">
+                    <TextBlock x:Name="TextStatistice"
+                               Text="Statistici"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Foreground="#5f2a87"
+                               Margin="0 0 0 20" />
+
+                    <!-- Subsection: Employees -->
+                    <Border x:Name="R_1"
+                            Background="#f3eaff"
+                            CornerRadius="10"
+                            Padding="20"
+                            Margin="0 0 0 15">
+                        <StackPanel>
+                            <TextBlock x:Name="TextAngajati"
+                                       Text="Angajați"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="#4a3762" />
+                            <TextBlock x:Name="EmployeesCountText"
+                                       Text="5"
+                                       FontSize="24"
+                                       FontWeight="Bold"
+                                       Foreground="#5f2a87"
+                                       Margin="0 5 0 0" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Subsection: Subscriptions -->
+                    <Border x:Name="R_2"
+                            Background="#f3eaff"
+                            CornerRadius="10"
+                            Padding="20"
+                            Margin="0 0 0 15">
+                        <StackPanel>
+                            <TextBlock x:Name="TextAbon"
+                                       Text="Număr total de abonamente"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="#4a3762" />
+                            <TextBlock x:Name="SubscriptionsCountText"
+                                       Text="78"
+                                       FontSize="24"
+                                       FontWeight="Bold"
+                                       Foreground="#5f2a87"
+                                       Margin="0 5 0 0" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Subsection: New Subscriptions This Month -->
+                    <Border x:Name="R_3"
+                            Background="#f3eaff"
+                            CornerRadius="10"
+                            Padding="20">
+                        <StackPanel>
+                            <TextBlock x:Name="TextAbonM"
+                                       Text="Număr total de abonamente noi (Luna curentă)"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="#4a3762" />
+                            <TextBlock x:Name="NewSubscriptionsCountText"
+                                       Text="12"
+                                       FontSize="24"
+                                       FontWeight="Bold"
+                                       Foreground="#5f2a87"
+                                       Margin="0 5 0 0" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
         </Grid>
     </Border>
 </Window>

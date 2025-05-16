@@ -114,7 +114,10 @@
                                      Width="381"
                                      BorderThickness="0,0,0,1"
                                      HorizontalAlignment="Center" />
+                        
                     </Grid>
+                    
+                    
 
                     <Button x:Name="LoginBtn"
                             Content="Autentificare"
