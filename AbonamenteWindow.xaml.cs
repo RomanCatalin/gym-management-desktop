@@ -200,6 +200,8 @@ namespace PIUG
                     abonamente.Remove(selected);
                     SaveAbonamente();
                     RefreshListBox();
+                    MessageBox.Show($"Abonamentul cu ID-ul [{selected.ID}] - {selected.PersonName} a fost șters cu succes.",
+                          "Ștergere reușită", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
