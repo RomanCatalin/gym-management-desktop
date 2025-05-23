@@ -81,7 +81,7 @@
                         VerticalAlignment="Top">
 
                 <!-- Logo -->
-                <Image Source="C:\Users\Eu\source\repos\PIUG\Asset_15x.png"
+                <Image Source="C:\Users\catad\OneDrive\Desktop\MAP\PIUG\Asset_15x.png"
                        Height="100"
                        Margin="0,10,0,40"
                        HorizontalAlignment="Center"

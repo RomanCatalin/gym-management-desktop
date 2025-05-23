@@ -15,12 +15,10 @@ using System.Windows.Shapes;
 
 namespace PIUG
 {
-    /// <summary>
-    /// Interaction logic for AbonamenteWindow.xaml
-    /// </summary>
+
     public partial class AbonamenteWindow : Window
     {
-        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\abonamente.txt";
+        private string filePath = "C:\\Users\\catad\\OneDrive\\Desktop\\MAP\\PIUG\\abonamente.txt";
         private List<Abonament> abonamente = new List<Abonament>();
 
         public AbonamenteWindow()
@@ -101,10 +99,9 @@ namespace PIUG
                 Properties.Settings.Default.isDarkMode = false;
                 Properties.Settings.Default.Save();
             }
-            foreach (Window window in Application.Current.Windows)
-            {
-                window.Close();
-            }
+
+            this.Close();
+
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)

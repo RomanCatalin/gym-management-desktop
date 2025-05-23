@@ -20,7 +20,7 @@ namespace PIUG
     /// </summary>
     public partial class AngajatiWindow : Window
     {
-        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt";
+        private string filePath = "C:\\Users\\catad\\OneDrive\\Desktop\\MAP\\PIUG\\angajati.txt";
         private List<Angajat> angajati = new List<Angajat>();
 
         public AngajatiWindow()
@@ -101,10 +101,8 @@ namespace PIUG
                 Properties.Settings.Default.isDarkMode = false;
                 Properties.Settings.Default.Save();
             }
-            foreach (Window window in Application.Current.Windows)
-            {
-                window.Close();
-            }
+
+            this.Close();
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)

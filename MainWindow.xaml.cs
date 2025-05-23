@@ -51,7 +51,6 @@ public partial class MainWindow : Window
             var originalForeground2 = Brushes.Black;
 
             UserNameLabel.Foreground = originalForeground;
-
             UserNameTextBox.Foreground = originalForeground2;
             UserNameTextBox.Background = originalBackground;
 
@@ -64,9 +63,11 @@ public partial class MainWindow : Window
         }
     }
 
+
+
     private void LoginBtn_Click(object sender, RoutedEventArgs e)
     {
-        string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt"; // Ajustează calea după caz
+        string filePath = "C:\\Users\\catad\\OneDrive\\Desktop\\MAP\\PIUG\\angajati.txt"; // Ajustează calea după caz
         string inputName = UserNameTextBox.Text.Trim();
         string inputPassword = PasswordBox.Password;
 
