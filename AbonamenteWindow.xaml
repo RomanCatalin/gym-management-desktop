@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIUG"
         mc:Ignorable="d"
-        Title="Employee Management"
+        Title="Management Abonamente"
         Height="540"
         Width="1080"
         WindowStyle="None"
@@ -23,7 +23,6 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Title bar -->
         <Grid Grid.Column="0"
               Grid.ColumnSpan="2"
               Grid.Row="0"
@@ -63,7 +62,6 @@
                     ToolTip="Close" />
         </Grid>
 
-        <!-- Sidebar -->
         <Border Grid.Row="1"
                 Grid.Column="0"
                 CornerRadius="0 0 0 10">
@@ -80,14 +78,12 @@
             <StackPanel Margin="10"
                         VerticalAlignment="Top">
 
-                <!-- Logo -->
                 <Image Source="C:\Users\Eu\source\repos\PIUG\Asset_15x.png"
                        Height="100"
                        Margin="0,10,0,40"
                        HorizontalAlignment="Center"
                        Stretch="Uniform" />
 
-                <!-- Buttons go here -->
                 <Button x:Name="AddButton"
                         Content="Adăugare abonament"
                         Click="AddAbonament_Click"
@@ -124,7 +120,6 @@
                             </Setter>
                         </Style>
                     </Button.Style>
-                    <!-- Style omitted for brevity (you already have it) -->
                 </Button>
 
                 <Button x:Name="DeleteButton"
@@ -163,7 +158,6 @@
                             </Setter>
                         </Style>
                     </Button.Style>
-                    <!-- Style omitted for brevity -->
                 </Button>
 
                 <Button x:Name="ModifyButton"
@@ -202,7 +196,6 @@
                             </Setter>
                         </Style>
                     </Button.Style>
-                    <!-- Style omitted for brevity -->
                 </Button>
 
                 <Button x:Name="ReturnHomeButton"
@@ -241,14 +234,10 @@
                             </Setter>
                         </Style>
                     </Button.Style>
-                    <!-- Style omitted for brevity -->
                 </Button>
             </StackPanel>
         </Border>
 
-
-
-        <!-- Right panel for employee list -->
         <Border x:Name="RightPanelBorder"
             Grid.Row="1"
                 Grid.Column="1"
@@ -264,7 +253,6 @@
             </Border.Background>
 
             <StackPanel Margin="20">
-                <!-- Search bar -->
                 <StackPanel Orientation="Horizontal"
                             Margin="0,0,0,10">
                     <Button Content="Căutare"
@@ -276,12 +264,10 @@
                             FontSize="14"
                             BorderThickness="0"
                             Cursor="Hand"
-                            FontWeight="Bold"
-                            
-                            
+                            FontWeight="Bold"                           
                             />
                     <TextBox x:Name="SearchBox"
-                             Text="Introduceți un nume..."
+                             Text="Introduceți ID-ul, numele, sau tipul de abonament..."
                              Width="659"
                              Height="30"
                              FontSize="14"
@@ -297,10 +283,8 @@
                            Foreground="Black"
                            Margin="5,0,0,5" />
 
-                <!-- List of employees -->
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Auto">
-                    <!-- sau fără Height dacă vrei să se extindă dinamic -->
                     <ListBox x:Name="EmployeeListBox"
                              FontSize="16"
                              Foreground="Black"

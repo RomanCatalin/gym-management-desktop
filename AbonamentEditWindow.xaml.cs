@@ -14,7 +14,7 @@ namespace PIUG
         public AbonamentEditWindow()
         {
             InitializeComponent();
-            TypeComboBox.SelectedIndex = 0; // default selection
+            TypeComboBox.SelectedIndex = 0;
             StartDatePicker.SelectedDate = DateTime.Today;
             EndDatePicker.SelectedDate = DateTime.Today;
             if (Properties.Settings.Default.isDarkMode)
@@ -51,8 +51,6 @@ namespace PIUG
             
 
         }
-
-        // Constructor pentru editare
         public AbonamentEditWindow(Abonament abonament) : this()
         {
             if (abonament != null)

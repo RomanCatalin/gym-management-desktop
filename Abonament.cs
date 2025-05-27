@@ -10,7 +10,7 @@ namespace PIUG
     {
         public int ID { get; set; }
         public string PersonName { get; set; }
-        public string Type { get; set; } // "Fitness", "Fitness & Group", "One day"
+        public string Type { get; set; } // Tipurile sunt: "Fitness", "Fitness & Group", "One day"
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

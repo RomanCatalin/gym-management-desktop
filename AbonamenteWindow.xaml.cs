@@ -15,12 +15,9 @@ using System.Windows.Shapes;
 
 namespace PIUG
 {
-    /// <summary>
-    /// Interaction logic for AbonamenteWindow.xaml
-    /// </summary>
     public partial class AbonamenteWindow : Window
     {
-        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\abonamente.txt";
+        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\abonamente.txt"; // TREBUIE EDITAT PC / LAPTOP
         private List<Abonament> abonamente = new List<Abonament>();
 
         public AbonamenteWindow()
@@ -101,10 +98,9 @@ namespace PIUG
                 Properties.Settings.Default.isDarkMode = false;
                 Properties.Settings.Default.Save();
             }
-            foreach (Window window in Application.Current.Windows)
-            {
-                window.Close();
-            }
+
+            this.Close();
+
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -133,7 +129,7 @@ namespace PIUG
                     }
                     catch
                     {
-                        // Ignori liniile corupte
+
                     }
                 }
             }
@@ -150,7 +146,7 @@ namespace PIUG
         {
             string query = SearchBox.Text.ToLower();
             var rezultate = abonamente
-                .Where(a => a.PersonName.ToLower().Contains(query) || a.Type.ToLower().Contains(query))
+                .Where(a => a.PersonName.ToLower().Contains(query) || a.Type.ToLower().Contains(query) || a.ID.ToString().Equals(query))
                 .ToList();
 
             EmployeeListBox.ItemsSource = null;
@@ -164,8 +160,6 @@ namespace PIUG
                 RefreshListBox();
             }
         }
-
-        // Opțional: metodă pentru salvarea în fișier
         private void SaveAbonamente()
         {
             File.WriteAllLines(filePath, abonamente.Select(a => a.ToFileLine()));
@@ -178,7 +172,6 @@ namespace PIUG
 
             if (addWindow.ShowDialog() == true)
             {
-                // Generăm un ID nou (max ID + 1)
                 int newId = abonamente.Any() ? abonamente.Max(a => a.ID) + 1 : 1;
                 addWindow.Abonament.ID = newId;
 
@@ -215,8 +208,7 @@ namespace PIUG
         {
             if (EmployeeListBox.SelectedItem is Abonament selected)
             {
-                // Creăm o copie pentru editare ca să nu modificăm direct obiectul
-                var abonamentCopy = new Abonament
+                var abonament_aux = new Abonament
                 {
                     ID = selected.ID,
                     PersonName = selected.PersonName,
@@ -225,12 +217,11 @@ namespace PIUG
                     EndDate = selected.EndDate
                 };
 
-                var editWindow = new AbonamentEditWindow(abonamentCopy);
+                var editWindow = new AbonamentEditWindow(abonament_aux);
                 editWindow.Owner = this;
 
                 if (editWindow.ShowDialog() == true)
                 {
-                    // Actualizăm obiectul original
                     selected.PersonName = editWindow.Abonament.PersonName;
                     selected.Type = editWindow.Abonament.Type;
                     selected.StartDate = editWindow.Abonament.StartDate;
