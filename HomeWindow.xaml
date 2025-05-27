@@ -12,7 +12,6 @@
         AllowsTransparency="True"
         Background="Transparent">
 
-    <!-- Outer border for the window -->
     <Border BorderBrush="#1e1627"
             BorderThickness="1"
             CornerRadius="0 0 10 10"
@@ -29,7 +28,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Title bar -->
+
             <Grid Grid.Column="0"
                   Grid.ColumnSpan="2"
                   Grid.Row="0"
@@ -69,7 +68,6 @@
                         ToolTip="Close" />
             </Grid>
 
-            <!-- Sidebar -->
             <Border Grid.Row="1"
                     Grid.Column="0"
                     CornerRadius="0 0 0 10">
@@ -84,7 +82,6 @@
                 </Border.Background>
 
                 <StackPanel>
-                    <!-- Username -->
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
                                 Margin="0 35 0 0">
@@ -244,13 +241,10 @@
                             </Button.Style>
                         </Button>
 
-                        <!-- Aici mută cele 3 butoane (BTAbon, BTAng, BTSetari) fără să le schimbi stilul -->
                     </StackPanel>
                 </StackPanel>
             </Border>
 
-
-            <!-- Setari button -->
 
             <Button x:Name="BTIesire"
                     Content="Ieșire"
@@ -292,7 +286,6 @@
                 </Button.Style>
             </Button>
 
-            <!-- White main panel -->
             <Border x:Name="RightBorder"
                     Grid.Row="1"
                     Grid.Column="1"
@@ -315,7 +308,6 @@
                                Foreground="#5f2a87"
                                Margin="0 0 0 20" />
 
-                    <!-- Subsection: Employees -->
                     <Border x:Name="R_1"
                             Background="#f3eaff"
                             CornerRadius="10"
@@ -336,7 +328,6 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Subsection: Subscriptions -->
                     <Border x:Name="R_2"
                             Background="#f3eaff"
                             CornerRadius="10"
@@ -357,7 +348,6 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Subsection: New Subscriptions This Month -->
                     <Border x:Name="R_3"
                             Background="#f3eaff"
                             CornerRadius="10"

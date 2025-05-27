@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace PIUG
 {
-    /// <summary>
-    /// Interaction logic for HomeWindow.xaml
-    /// </summary>
     public partial class HomeWindow : Window
     {
         private int clicksAbon = 0;
@@ -27,7 +24,7 @@ namespace PIUG
         private void RearanjareButoaneHomePage()
         {
 
-            var butoane_contorizate= new List<(Button button, int clicks)>
+            var butoane_contorizate = new List<(Button button, int clicks)>
             {
             (BTAbon, clicksAbon),(BTAng, clicksAng),(BTSetari, clicksSetari)
             };
@@ -43,17 +40,12 @@ namespace PIUG
 
 
 
-
-
-
         private readonly string statsFilePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\stats.txt";
         public HomeWindow()
         {
             InitializeComponent();
             LoadStatistics();
             Apply_Theme();
-
-
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -96,12 +88,12 @@ namespace PIUG
             RearanjareButoaneHomePage();
 
             AbonamenteWindow abonamenteWindow = new AbonamenteWindow();
-            abonamenteWindow.Owner = this;   
-            this.Hide();                     
+            abonamenteWindow.Owner = this;
+            this.Hide();
 
-            abonamenteWindow.ShowDialog();  
+            abonamenteWindow.ShowDialog();
 
-            this.Show();                    
+            this.Show();
             RearanjareButoaneHomePage();
 
         }
@@ -112,12 +104,12 @@ namespace PIUG
             RearanjareButoaneHomePage();
 
             AngajatiWindow angajatiWindow = new AngajatiWindow();
-            angajatiWindow.Owner = this;    
-            this.Hide();                     
+            angajatiWindow.Owner = this;
+            this.Hide();
 
-            angajatiWindow.ShowDialog();  
+            angajatiWindow.ShowDialog();
 
-            this.Show();                    
+            this.Show();
             RearanjareButoaneHomePage();
 
         }
@@ -209,38 +201,42 @@ namespace PIUG
             {
                 if (!File.Exists(statsFilePath))
                 {
-                    // Create file with default values
-                    File.WriteAllLines(statsFilePath, new[]
-                    {
-                        "Employees=0",
-                        "Subscriptions=0",
-                        "NewThisMonth=0"
-                    });
+                    MessageBox.Show("Fișierul pentru statistice HomePage nu a fost gasit!");
+                    return;
                 }
 
-                Dictionary<string, string> stats = new();
+                string employees = "0", subscriptions = "0", newThisMonth = "0";
 
                 foreach (var line in File.ReadAllLines(statsFilePath))
                 {
-                    if (line.Contains("="))
+                    var parts = line.Split('=');
+                    if (parts.Length != 2) continue;
+
+                    switch (parts[0].Trim())
                     {
-                        var parts = line.Split('=');
-                        if (parts.Length == 2)
-                        {
-                            stats[parts[0].Trim()] = parts[1].Trim();
-                        }
+                        case "Employees":
+                            employees = parts[1].Trim();
+                            break;
+                        case "Subscriptions":
+                            subscriptions = parts[1].Trim();
+                            break;
+                        case "NewThisMonth":
+                            newThisMonth = parts[1].Trim();
+                            break;
                     }
                 }
 
-                EmployeesCountText.Text = stats.ContainsKey("Employees") ? stats["Employees"] : "0";
-                SubscriptionsCountText.Text = stats.ContainsKey("Subscriptions") ? stats["Subscriptions"] : "0";
-                NewSubscriptionsCountText.Text = stats.ContainsKey("NewThisMonth") ? stats["NewThisMonth"] : "0";
+                EmployeesCountText.Text = employees;
+                SubscriptionsCountText.Text = subscriptions;
+                NewSubscriptionsCountText.Text = newThisMonth;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading statistics: " + ex.Message);
+                MessageBox.Show("Eroare la încărcarea statisticilor: " + ex.Message);
             }
         }
+
+
 
         private void IesireBtn_Click(object sender, RoutedEventArgs e)
         {

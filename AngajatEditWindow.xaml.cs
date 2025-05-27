@@ -15,8 +15,8 @@ namespace PIUG
         {
             InitializeComponent();
 
-            PositionComboBox.SelectedIndex = 0; // selectare implicită funcție
-            SalaryTextBox.Text = "0.00"; // valoare implicită salariu
+            PositionComboBox.SelectedIndex = 0; 
+            SalaryTextBox.Text = "0.00"; 
 
             if (Properties.Settings.Default.isDarkMode)
             {
@@ -54,7 +54,6 @@ namespace PIUG
             }
         }
 
-        // Constructor editare cu angajat existent
         public AngajatEditWindow(Angajat angajat) : this()
         {
             if (angajat != null)
@@ -97,7 +96,9 @@ namespace PIUG
             }
 
             if (Angajat == null)
+            {
                 Angajat = new Angajat();
+            }
 
             Angajat.Nume = NameTextBox.Text.Trim();
             Angajat.Functie = ((ComboBoxItem)PositionComboBox.SelectedItem).Content.ToString();

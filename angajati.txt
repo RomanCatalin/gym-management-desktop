@@ -3,3 +3,4 @@
 3;Georgescu Andrei;Antrenor;5000
 4;Dumitrescu Elena;Antrenor;3600.75
 5;Marin Adrian;Curatenie;2100
+6;T;Manager;0

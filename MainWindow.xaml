@@ -24,7 +24,6 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!-- Custom Title Bar -->
             <Grid Grid.Row="0"
                   Background="#3e2e52"
                   MouseDown="TitleBar_MouseDown">
@@ -61,7 +60,6 @@
                         ToolTip="Close" />
             </Grid>
 
-            <!-- Main content -->
             <Border Grid.Row="1"
                     Background="Transparent"
                     CornerRadius="0 0 10 10"

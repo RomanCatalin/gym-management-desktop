@@ -15,12 +15,9 @@ using System.Windows.Shapes;
 
 namespace PIUG
 {
-    /// <summary>
-    /// Interaction logic for AbonamenteWindow.xaml
-    /// </summary>
     public partial class AngajatiWindow : Window
     {
-        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt";
+        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt"; // TREBUIE MODIFICAT PC / LAPTOP !!!
         private List<Angajat> angajati = new List<Angajat>();
 
         public AngajatiWindow()
@@ -84,8 +81,6 @@ namespace PIUG
                 EmployeeListBox.Foreground = originalForeground;
             }
             LoadAngajati();
-
-
         }
 
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -101,10 +96,8 @@ namespace PIUG
                 Properties.Settings.Default.isDarkMode = false;
                 Properties.Settings.Default.Save();
             }
-            foreach (Window window in Application.Current.Windows)
-            {
-                window.Close();
-            }
+            this.Close();
+
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -133,7 +126,7 @@ namespace PIUG
                     }
                     catch
                     {
-                        // Ignori liniile corupte
+
                     }
                 }
             }
@@ -171,7 +164,6 @@ namespace PIUG
             }
         }
 
-        // Opțional: metodă pentru salvarea în fișier
         private void AddAngajat_Click(object sender, RoutedEventArgs e)
         {
             var addWindow = new AngajatEditWindow();
@@ -179,7 +171,6 @@ namespace PIUG
 
             if (addWindow.ShowDialog() == true)
             {
-                // Generăm un ID nou (max ID + 1)
                 int newId = angajati.Any() ? angajati.Max(a => a.ID) + 1 : 1;
                 addWindow.Angajat.ID = newId;
 

@@ -12,9 +12,6 @@ using System.Windows.Shapes;
 
 namespace PIUG;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()
@@ -35,7 +32,6 @@ public partial class MainWindow : Window
 
             UserNameTextBox.Foreground = whiteForeground;
             UserNameTextBox.Background = darkBackground2;
-
 
             PasswordLabel.Foreground = whiteForeground;
 
@@ -66,18 +62,17 @@ public partial class MainWindow : Window
 
     private void LoginBtn_Click(object sender, RoutedEventArgs e)
     {
-        string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt"; // Ajustează calea după caz
+        string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt"; // TREBUIE SCHIMBAT PC / LAPTOP !!!
         string inputName = UserNameTextBox.Text.Trim();
         string inputPassword = PasswordBox.Password;
 
-        // Validare: numele nu trebuie să conțină cifre
+
         if (inputName.Any(char.IsDigit))
         {
             MessageBox.Show("Numele nu poate conține cifre.", "Validare nume", MessageBoxButton.OK);
             return;
         }
 
-        // Validare: parola nu trebuie să conțină spații
         if (inputPassword.Contains(" "))
         {
             MessageBox.Show("Parola nu poate conține spații.", "Validare parola", MessageBoxButton.OK);
@@ -94,12 +89,17 @@ public partial class MainWindow : Window
         {
             var lines = File.ReadAllLines(filePath);
 
-            // Căutăm dacă există angajat cu numele dat
-            var angajatLinie = lines.FirstOrDefault(line =>
+            string angajatLinie = null;
+
+            foreach (var line in lines)
             {
                 var parts = line.Split(';');
-                return parts.Length >= 3 && parts[1].Trim().Equals(inputName, StringComparison.OrdinalIgnoreCase);
-            });
+                if (parts.Length >= 3 && parts[1].Trim().Equals(inputName, StringComparison.OrdinalIgnoreCase))
+                {
+                    angajatLinie = line;
+                    break;
+                }
+            }
 
             if (angajatLinie == null)
             {
@@ -122,7 +122,6 @@ public partial class MainWindow : Window
                 return;
             }
 
-            // Dacă ajunge aici, toate sunt corecte
             HomeWindow homeWindow = new HomeWindow();
             homeWindow.Show();
             this.Close();
