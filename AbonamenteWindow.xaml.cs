@@ -17,7 +17,7 @@ namespace PIUG
 {
     public partial class AbonamenteWindow : Window
     {
-        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\abonamente.txt"; // TREBUIE EDITAT PC / LAPTOP
+        private string filePath = "C:\\MTP_Piug\\PIUG\\abonamente.txt"; // TREBUIE EDITAT PC / LAPTOP
         private List<Abonament> abonamente = new List<Abonament>();
 
         public AbonamenteWindow()

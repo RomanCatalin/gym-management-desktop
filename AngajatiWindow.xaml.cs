@@ -17,7 +17,7 @@ namespace PIUG
 {
     public partial class AngajatiWindow : Window
     {
-        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt"; // TREBUIE MODIFICAT PC / LAPTOP !!!
+        private string filePath = "C:\\MTP_Piug\\PIUG\\angajati.txt"; // TREBUIE MODIFICAT PC / LAPTOP !!!
         private List<Angajat> angajati = new List<Angajat>();
 
         public AngajatiWindow()

@@ -40,7 +40,7 @@ namespace PIUG
 
 
 
-        private readonly string statsFilePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\stats.txt";
+        private readonly string statsFilePath = "C:\\MTP_Piug\\PIUG\\stats.txt";
         public HomeWindow()
         {
             InitializeComponent();

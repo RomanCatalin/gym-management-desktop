@@ -62,7 +62,7 @@ public partial class MainWindow : Window
 
     private void LoginBtn_Click(object sender, RoutedEventArgs e)
     {
-        string filePath = "C:\\Users\\catad\\OneDrive\\Desktop\\MTP_Piug\\PIUG\\angajati.txt"; // TREBUIE SCHIMBAT PC / LAPTOP !!!
+        string filePath = "C:\\MTP_Piug\\PIUG\\angajati.txt"; // TREBUIE SCHIMBAT PC / LAPTOP !!!
         string inputName = UserNameTextBox.Text.Trim();
         string inputPassword = PasswordBox.Password;
 
