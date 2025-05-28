@@ -146,7 +146,7 @@ namespace PIUG
         {
             string query = SearchBox.Text.ToLower();
             var rezultate = abonamente
-                .Where(a => a.PersonName.ToLower().Contains(query) || a.Type.ToLower().Contains(query) || a.ID.ToString().Equals(query))
+                .Where(a => a.PersonName.ToLower().Contains(query) || a.Type.ToLower().Equals(query) || a.ID.ToString().Equals(query))
                 .ToList();
 
             EmployeeListBox.ItemsSource = null;

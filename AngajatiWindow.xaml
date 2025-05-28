@@ -259,7 +259,7 @@
                     <Button Content="Căutare"
                             Width="80"
                             Height="30"
-                            Click="CautareAbonament_Click"
+                            Click="CautareAngajati_Click"
                             Background="#4a3762"
                             Foreground="White"
                             FontSize="14"

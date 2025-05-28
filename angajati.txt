@@ -1,5 +1,5 @@
 1;Roman Catalin;Manager;0
 2;Ionescu Maria;Curatenie;2200
-3;Georgescu Andrei;Antrenor;6000
+3;Georgescu Andrei;Manager;6000
 4;Dumitrescu Elena;Antrenor;3600.75
 5;Marin Adrian;Curatenie;2100

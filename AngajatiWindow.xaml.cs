@@ -145,11 +145,11 @@ namespace PIUG
             EmployeeListBox.ItemsSource = angajati;
         }
 
-        private void CautareAbonament_Click(object sender, RoutedEventArgs e)
+        private void CautareAngajati_Click(object sender, RoutedEventArgs e)
         {
             string query = SearchBox.Text.ToLower();
             var rezultate = angajati
-                .Where(a => a.Nume.ToLower().Contains(query) || a.Functie.ToLower().Contains(query))
+                .Where(a => a.Nume.ToLower().Contains(query) || a.Functie.ToLower().Equals(query))
                 .ToList();
 
             EmployeeListBox.ItemsSource = null;
