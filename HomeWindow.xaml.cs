@@ -20,6 +20,7 @@ namespace PIUG
         private int clicksAbon = 0;
         private int clicksAng = 0;
         private int clicksSetari = 0;
+        private string numeUtilizator;
 
         private void RearanjareButoaneHomePage()
         {
@@ -41,10 +42,12 @@ namespace PIUG
 
 
         private readonly string statsFilePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\stats.txt";
-        public HomeWindow()
+        public HomeWindow(string numeUtilizator)
         {
             InitializeComponent();
             LoadStatistics();
+            this.numeUtilizator = numeUtilizator;
+            userTextBlock.Text = numeUtilizator;
             Apply_Theme();
         }
 

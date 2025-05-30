@@ -107,9 +107,8 @@
                                        Margin="3 0 0 2" />
                         </Border>
 
-                        <StackPanel Margin="10 0 0 0"
-                                    VerticalAlignment="Center">
-                            <TextBlock Text="Roman Catalin"
+                        <StackPanel Margin="10 0 0 0" VerticalAlignment="Center" Width="150" Height="60">
+                            <TextBlock x:Name="userTextBlock"
                                        FontSize="22"
                                        Margin="0 0 0 5"
                                        Foreground="White"

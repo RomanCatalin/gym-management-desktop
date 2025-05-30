@@ -122,7 +122,7 @@ public partial class MainWindow : Window
                 return;
             }
 
-            HomeWindow homeWindow = new HomeWindow();
+            HomeWindow homeWindow = new HomeWindow(inputName);
             homeWindow.Show();
             this.Close();
         }
