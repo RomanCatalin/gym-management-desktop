@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -50,8 +51,8 @@ namespace PIUG
                 SearchBox.Background = darkBackground2;
                 SearchBox.Foreground = whiteForeground;
 
-                EmployeeListBox.Background = darkBackground2;
-                EmployeeListBox.Foreground = whiteForeground;
+                AbonamenteListBox.Background = darkBackground2;
+                AbonamenteListBox.Foreground = whiteForeground;
             }
             else if (Properties.Settings.Default.isDarkMode == false)
             {
@@ -77,8 +78,8 @@ namespace PIUG
                 SearchBox.Background = originalBackground;
                 SearchBox.Foreground = originalForeground;
 
-                EmployeeListBox.Background = originalBackground;
-                EmployeeListBox.Foreground = originalForeground;
+                AbonamenteListBox.Background = originalBackground;
+                AbonamenteListBox.Foreground = originalForeground;
             }
             LoadAbonamente();
 
@@ -138,8 +139,8 @@ namespace PIUG
 
         private void RefreshListBox()
         {
-            EmployeeListBox.ItemsSource = null;
-            EmployeeListBox.ItemsSource = abonamente;
+            AbonamenteListBox.ItemsSource = null;
+            AbonamenteListBox.ItemsSource = abonamente;
         }
 
         private void CautareAbonament_Click(object sender, RoutedEventArgs e)
@@ -149,8 +150,8 @@ namespace PIUG
                 .Where(a => a.PersonName.ToLower().Contains(query) || a.Type.ToLower().Contains(query) || a.ID.ToString().Equals(query))
                 .ToList();
 
-            EmployeeListBox.ItemsSource = null;
-            EmployeeListBox.ItemsSource = rezultate;
+            AbonamenteListBox.ItemsSource = null;
+            AbonamenteListBox.ItemsSource = rezultate;
         }
 
         private void SearchBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -183,7 +184,7 @@ namespace PIUG
 
         private void StergereAbonament_Click(object sender, RoutedEventArgs e)
         {
-            if (EmployeeListBox.SelectedItem is Abonament selected)
+            if (AbonamenteListBox.SelectedItem is Abonament selected)
             {
                 var result = MessageBox.Show($"Sigur doriți să ștergeți abonamentul [{selected.ID}] {selected.PersonName}?",
                     "Confirmare ștergere", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -206,7 +207,7 @@ namespace PIUG
 
         private void ModAbonament_Click(object sender, RoutedEventArgs e)
         {
-            if (EmployeeListBox.SelectedItem is Abonament selected)
+            if (AbonamenteListBox.SelectedItem is Abonament selected)
             {
                 var abonament_aux = new Abonament
                 {
@@ -234,6 +235,33 @@ namespace PIUG
             else
             {
                 MessageBox.Show("Selectați un abonament pentru modificare.", "Informație", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void ExportAbonamente_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Fișiere text (*.txt)|*.txt";
+            saveFileDialog.FileName = "abonamente_filtered_export.txt";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                foreach (var item in AbonamenteListBox.Items)
+                {
+                    sb.AppendLine(item.ToString());
+                }
+
+                try
+                {
+                    File.WriteAllText(saveFileDialog.FileName, sb.ToString());
+                    MessageBox.Show("Export realizat cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Eroare la export: " + ex.Message, "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }

@@ -268,12 +268,22 @@
                             />
                     <TextBox x:Name="SearchBox"
                              Text="Introduceți ID-ul, numele, sau tipul de abonament..."
-                             Width="659"
+                             Width="529"
                              Height="30"
                              FontSize="14"
                              Padding="5"
                              VerticalContentAlignment="Center"
                              TextChanged="SearchBox_TextChanged" />
+                    <Button Content="Export"
+                            Width="128"
+                            Height="30"
+                            Click="ExportAbonamente_Click"
+                            Background="#4a3762"
+                            Foreground="White"
+                            FontSize="14"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            FontWeight="Bold" />
                 </StackPanel>
 
                 <TextBlock x:Name="InfoBox"
@@ -285,7 +295,7 @@
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Auto">
-                    <ListBox x:Name="EmployeeListBox"
+                    <ListBox x:Name="AbonamenteListBox"
                              FontSize="16"
                              Foreground="Black"
                              BorderBrush="#ccc"
