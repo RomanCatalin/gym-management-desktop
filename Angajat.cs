@@ -19,7 +19,7 @@ namespace PIUG
 
         public static Angajat FromFileLine(string linie)
         {
-            var parti = linie.Split(';');
+            var parti = linie.Split(',');
             if (parti.Length != 4)
                 throw new FormatException("Format linie invalid");
 
@@ -35,7 +35,7 @@ namespace PIUG
 
         public string ToFileLine()
             {
-                return $"{ID};{Nume};{Functie};{Salariu.ToString(CultureInfo.InvariantCulture)}";
+                return $"{ID},{Nume},{Functie},{Salariu.ToString(CultureInfo.InvariantCulture)}";
             }
 
             public override string ToString()

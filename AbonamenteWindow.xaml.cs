@@ -18,18 +18,13 @@ namespace PIUG
 {
     public partial class AbonamenteWindow : Window
     {
-        private string filePath;
         private List<Abonament> abonamente = new List<Abonament>();
+        private string filePath;
 
         public AbonamenteWindow()
         {
             InitializeComponent();
-
-            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            string projectFolder = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDir, @"..\..\.."));
-            string dataFolder = System.IO.Path.Combine(projectFolder, "Data");
-
-            filePath = System.IO.Path.Combine(dataFolder, "abonamente.csv");
+            filePath = FilePaths.abonamenteFilePath;
 
 
             if (Properties.Settings.Default.isDarkMode)
