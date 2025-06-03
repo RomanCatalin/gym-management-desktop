@@ -85,8 +85,6 @@ namespace PIUG
             }
             LoadAbonamente();
             UpdateProgressBarChart();
-
-
         }
 
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -260,6 +258,7 @@ namespace PIUG
                 abonamente.Add(addWindow.Abonament);
                 SaveAbonamente();
                 RefreshListBox();
+                UpdateProgressBarChart();
             }
         }
 
@@ -274,6 +273,7 @@ namespace PIUG
                     abonamente.Remove(selected);
                     SaveAbonamente();
                     RefreshListBox();
+                    UpdateProgressBarChart();
                     MessageBox.Show($"Abonamentul cu ID-ul [{selected.ID}] - {selected.PersonName} a fost șters cu succes.",
                           "Ștergere reușită", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -310,6 +310,7 @@ namespace PIUG
 
                     SaveAbonamente();
                     RefreshListBox();
+                    UpdateProgressBarChart();
                 }
             }
             else
