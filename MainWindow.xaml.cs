@@ -62,7 +62,7 @@ public partial class MainWindow : Window
 
     private void LoginBtn_Click(object sender, RoutedEventArgs e)
     {
-        string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\angajati.txt"; // TREBUIE SCHIMBAT PC / LAPTOP !!!
+        string filePath = FilePaths.angajatiFilePath;
         string inputName = UserNameTextBox.Text.Trim();
         string inputPassword = PasswordBox.Password;
 
@@ -93,7 +93,7 @@ public partial class MainWindow : Window
 
             foreach (var line in lines)
             {
-                var parts = line.Split(';');
+                var parts = line.Split(',');
                 if (parts.Length >= 3 && parts[1].Trim().Equals(inputName, StringComparison.OrdinalIgnoreCase))
                 {
                     angajatLinie = line;
@@ -107,7 +107,7 @@ public partial class MainWindow : Window
                 return;
             }
 
-            var partsAngajat = angajatLinie.Split(';');
+            var partsAngajat = angajatLinie.Split(',');
             string functie = partsAngajat[2].Trim();
 
             if (!functie.Equals("Manager", StringComparison.OrdinalIgnoreCase))
