@@ -36,7 +36,8 @@ namespace PIUG
             else if (Properties.Settings.Default.isDarkMode == false)
             {
                 var originalBackground = Brushes.White;
-                var originalForeground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4a3762"));
+                var originalForeground = new SolidColorBrush(Color.FromRgb(74, 55, 98));
+
 
                 SettingsBackground.Background = originalBackground;
 

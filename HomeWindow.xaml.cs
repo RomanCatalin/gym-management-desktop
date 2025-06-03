@@ -158,11 +158,11 @@ namespace PIUG
             else if (Properties.Settings.Default.isDarkMode == false)
             {
                 var originalBackground = Brushes.White;
-                var originalDataBackground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#f3eaff"));
-                var originalButtonForeground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4a3762"));
-                var originalStatisticeForeground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#5f2a87"));
-                var originalTextForeground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4a3762"));
-                var originalDataForeground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#5f2a87"));
+                var originalDataBackground = new SolidColorBrush(Color.FromRgb(0xf3, 0xea, 0xff));
+                var originalButtonForeground = new SolidColorBrush(Color.FromRgb(0x4a, 0x37, 0x62));
+                var originalStatisticeForeground = new SolidColorBrush(Color.FromRgb(0x5f, 0x2a, 0x87));
+                var originalTextForeground = new SolidColorBrush(Color.FromRgb(0x4a, 0x37, 0x62));
+                var originalDataForeground = new SolidColorBrush(Color.FromRgb(0x5f, 0x2a, 0x87));
 
                 BTAbon.Background = originalBackground;
                 BTAbon.Foreground = originalButtonForeground;

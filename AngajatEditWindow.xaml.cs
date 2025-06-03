@@ -38,7 +38,8 @@ namespace PIUG
             else
             {
                 var originalBackground = Brushes.White;
-                var originalForeground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#4a3762"));
+                var originalForeground = new SolidColorBrush(Color.FromRgb(74, 55, 98));
+
 
                 SettingsBackground.Background = originalBackground;
 
@@ -122,5 +123,6 @@ namespace PIUG
         {
             this.DialogResult = false;
         }
+
     }
 }
