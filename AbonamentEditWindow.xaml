@@ -95,7 +95,8 @@
                     <ComboBox x:Name="TypeComboBox"
                               Height="30"
                               Margin="0,5,0,15"
-                              Width="258">
+                              Width="258"
+                              SelectionChanged="TypeComboBox_SelectionChanged">
                         <ComboBoxItem>Fitness</ComboBoxItem>
                         <ComboBoxItem>Fitness &amp; Group</ComboBoxItem>
                         <ComboBoxItem>One day</ComboBoxItem>

@@ -115,7 +115,6 @@ namespace PIUG
         private void RevHomePage_Click(object sender, RoutedEventArgs e)
         {
             this.Close(); 
-
         }
 
         private void LoadAbonamente()
@@ -192,8 +191,7 @@ namespace PIUG
         {
             if (AbonamenteListBox.SelectedItem is Abonament selected)
             {
-                var result = MessageBox.Show($"Sigur doriți să ștergeți abonamentul [{selected.ID}] {selected.PersonName}?",
-                    "Confirmare ștergere", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                var result = MessageBox.Show($"Sigur doriți să ștergeți abonamentul [{selected.ID}] {selected.PersonName}?","Confirmare ștergere", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (result == MessageBoxResult.Yes)
                 {

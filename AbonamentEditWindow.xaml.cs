@@ -124,6 +124,25 @@ namespace PIUG
         {
             this.DialogResult = false;
         }
+
+        private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TypeComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                if (selectedItem.Content.ToString().Equals("One Day", StringComparison.OrdinalIgnoreCase))
+                {
+                    StartDatePicker.SelectedDate = DateTime.Today;
+                    EndDatePicker.SelectedDate = DateTime.Today;
+                    StartDatePicker.IsEnabled = false;
+                    EndDatePicker.IsEnabled = false;
+                }
+                else
+                {
+                    StartDatePicker.IsEnabled = true;
+                    EndDatePicker.IsEnabled = true;
+                }
+            }
+        }
     }
 
 
