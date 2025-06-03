@@ -18,12 +18,18 @@ namespace PIUG
 {
     public partial class AbonamenteWindow : Window
     {
-        private string filePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\abonamente.txt"; // TREBUIE EDITAT PC / LAPTOP
+        private string filePath;
         private List<Abonament> abonamente = new List<Abonament>();
 
         public AbonamenteWindow()
         {
             InitializeComponent();
+
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string projectFolder = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDir, @"..\..\.."));
+            string dataFolder = System.IO.Path.Combine(projectFolder, "Data");
+
+            filePath = System.IO.Path.Combine(dataFolder, "abonamente.csv");
 
 
             if (Properties.Settings.Default.isDarkMode)
@@ -134,6 +140,10 @@ namespace PIUG
                     }
                 }
             }
+            else
+            {
+                File.WriteAllText(filePath,string.Empty);
+            }
             RefreshListBox();
         }
 
@@ -241,21 +251,21 @@ namespace PIUG
         private void ExportAbonamente_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Fișiere text (*.txt)|*.txt";
-            saveFileDialog.FileName = "abonamente_filtered_export.txt";
+            saveFileDialog.Filter = "Fișiere text (*.csv)|*.csv";
+            saveFileDialog.FileName = "export_abonamente_filtrate.csv";
 
             if (saveFileDialog.ShowDialog() == true)
             {
-                StringBuilder sb = new StringBuilder();
-
-                foreach (var item in AbonamenteListBox.Items)
-                {
-                    sb.AppendLine(item.ToString());
-                }
-
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName, sb.ToString());
+                    var lines = new List<string>();
+
+                    foreach (Abonament item in AbonamenteListBox.Items)
+                    {
+                        lines.Add(item.ToFileLine());
+                    }
+
+                    File.WriteAllLines(saveFileDialog.FileName, lines);
                     MessageBox.Show("Export realizat cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)

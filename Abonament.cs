@@ -21,12 +21,16 @@ namespace PIUG
 
         public string ToFileLine()
         {
-            return $"{ID}|{PersonName}|{Type}|{StartDate:yyyy-MM-dd}|{EndDate:yyyy-MM-dd}";
+            return $"{ID},{PersonName},{Type},{StartDate:yyyy-MM-dd},{EndDate:yyyy-MM-dd}";
         }
 
         public static Abonament FromFileLine(string line)
         {
-            var parts = line.Split('|');
+            var parts = line.Split(',');
+
+            if (parts.Length != 5)
+                throw new FormatException("Linie invalidă.");
+
             return new Abonament
             {
                 ID = int.Parse(parts[0]),
