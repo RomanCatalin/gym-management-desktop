@@ -39,7 +39,7 @@ namespace PIUG
 
         private void DarkModeCheckbox_Checked(object sender, RoutedEventArgs e)
         {
-            SettingsBackground.Background = new SolidColorBrush(Color.FromRgb(30, 30, 30)); // dark gray
+            SettingsBackground.Background = new SolidColorBrush(Color.FromRgb(30, 30, 30));
             DarkModeLabel.Foreground = Brushes.White;
             RetinereSetariLabel.Foreground = Brushes.White;
 
@@ -50,7 +50,7 @@ namespace PIUG
 
         private void DarkModeCheckbox_Unchecked(object sender, RoutedEventArgs e)
         {
-            SettingsBackground.Background = new LinearGradientBrush(Colors.White, Colors.White, 90);
+            SettingsBackground.Background = Brushes.White;
             var defaultColor = (Color)ColorConverter.ConvertFromString("#4a3762");
             DarkModeLabel.Foreground = new SolidColorBrush(defaultColor);
             RetinereSetariLabel.Foreground = new SolidColorBrush(defaultColor);
