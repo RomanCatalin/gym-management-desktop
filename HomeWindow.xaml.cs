@@ -38,10 +38,6 @@ namespace PIUG
                 ButtonsPanel.Children.Add(button);
             }
         }
-
-
-
-        private readonly string statsFilePath = "C:\\Users\\Eu\\source\\repos\\PIUG\\stats.txt";
         public HomeWindow(string numeUtilizator)
         {
             InitializeComponent();
@@ -98,6 +94,7 @@ namespace PIUG
 
             this.Show();
             RearanjareButoaneHomePage();
+            LoadStatistics();
 
         }
 
@@ -114,6 +111,7 @@ namespace PIUG
 
             this.Show();
             RearanjareButoaneHomePage();
+            LoadStatistics();
 
         }
 
@@ -200,43 +198,13 @@ namespace PIUG
 
         private void LoadStatistics()
         {
-            try
-            {
-                if (!File.Exists(statsFilePath))
-                {
-                    MessageBox.Show("Fișierul pentru statistice HomePage nu a fost gasit!");
-                    return;
-                }
+            int nr_abonamente = StatsUtilities.getNumarAbonamentes();
+            int nr_angajati = StatsUtilities.getNumarAngajati();
+            int nr_abonamente_luna = StatsUtilities.getNumarAbonamenteLunaCurenta();
 
-                string employees = "0", subscriptions = "0", newThisMonth = "0";
-
-                foreach (var line in File.ReadAllLines(statsFilePath))
-                {
-                    var parts = line.Split('=');
-                    if (parts.Length != 2) continue;
-
-                    switch (parts[0].Trim())
-                    {
-                        case "Employees":
-                            employees = parts[1].Trim();
-                            break;
-                        case "Subscriptions":
-                            subscriptions = parts[1].Trim();
-                            break;
-                        case "NewThisMonth":
-                            newThisMonth = parts[1].Trim();
-                            break;
-                    }
-                }
-
-                EmployeesCountText.Text = employees;
-                SubscriptionsCountText.Text = subscriptions;
-                NewSubscriptionsCountText.Text = newThisMonth;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Eroare la încărcarea statisticilor: " + ex.Message);
-            }
+            EmployeesCountText.Text = nr_angajati.ToString();
+            SubscriptionsCountText.Text = nr_abonamente.ToString();
+            NewSubscriptionsCountText.Text = nr_abonamente_luna.ToString();
         }
 
 
