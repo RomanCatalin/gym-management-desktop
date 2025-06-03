@@ -129,7 +129,7 @@ namespace PIUG
         {
             if (TypeComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
-                if (selectedItem.Content.ToString().Equals("One Day", StringComparison.OrdinalIgnoreCase))
+                if (selectedItem.Content.ToString().Equals("One day"))
                 {
                     StartDatePicker.SelectedDate = DateTime.Today;
                     EndDatePicker.SelectedDate = DateTime.Today;
