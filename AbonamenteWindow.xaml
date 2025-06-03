@@ -80,7 +80,7 @@
 
                 <Image Source="C:\Users\Eu\source\repos\PIUG\Asset_15x.png"
                        Height="100"
-                       Margin="0,10,0,40"
+                       Margin="0,10,0,10"
                        HorizontalAlignment="Center"
                        Stretch="Uniform" />
 
@@ -198,13 +198,26 @@
                     </Button.Style>
                 </Button>
 
+                <StackPanel Margin="0,10,0,0">
+                    <TextBlock x:Name="TextBoxDistributie"
+                        Text="Distribuția abonamentelor"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               FontSize="16"
+                               Margin="0,0,0,10" />
+
+                    <StackPanel x:Name="TipuriPanel"
+                                Orientation="Vertical"
+                                Background="Transparent" />
+                </StackPanel>
+
                 <Button x:Name="ReturnHomeButton"
                         Content="Revenire la HomePage"
                         Click="RevHomePage_Click"
                         FontSize="18"
                         Background="White"
                         Foreground="#4a3762"
-                        Margin="0,90,0,0"
+                        Margin="0,30,0,0"
                         Height="35"
                         FontWeight="Bold">
                     <Button.Style>

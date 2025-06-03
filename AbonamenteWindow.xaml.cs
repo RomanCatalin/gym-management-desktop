@@ -84,6 +84,7 @@ namespace PIUG
                 AbonamenteListBox.Foreground = originalForeground;
             }
             LoadAbonamente();
+            UpdateProgressBarChart();
 
 
         }
@@ -106,6 +107,8 @@ namespace PIUG
 
         }
 
+
+
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -114,7 +117,7 @@ namespace PIUG
 
         private void RevHomePage_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         private void LoadAbonamente()
@@ -137,7 +140,7 @@ namespace PIUG
             }
             else
             {
-                File.WriteAllText(filePath,string.Empty);
+                File.WriteAllText(filePath, string.Empty);
             }
             RefreshListBox();
         }
@@ -171,6 +174,79 @@ namespace PIUG
             File.WriteAllLines(filePath, abonamente.Select(a => a.ToFileLine()));
         }
 
+        private void UpdateProgressBarChart()
+        {
+            TipuriPanel.Children.Clear();
+
+            if (abonamente.Count == 0)
+                return;
+
+            int total = abonamente.Count;
+
+            TextBoxDistributie.Text = $"Distribuția abonamentelor ({total})";
+
+            for (int i = 0; i < abonamente.Count; i++)
+            {
+                string currentType = abonamente[i].Type;
+
+                bool alreadyProcessed = false;
+                for (int j = 0; j < i; j++)
+                {
+                    if (abonamente[j].Type == currentType)
+                    {
+                        alreadyProcessed = true;
+                        break;
+                    }
+                }
+
+                if (alreadyProcessed)
+                    continue; 
+
+                int count = 0;
+                foreach (var a in abonamente)
+                {
+                    if (a.Type == currentType)
+                        count++;
+                }
+
+                double procent = (double)count / total * 100;
+
+                var stack = new StackPanel
+                {
+                    Orientation = Orientation.Horizontal,
+                    Margin = new Thickness(0, 3, 0, 3)
+                };
+
+                var textBlock = new TextBlock
+                {
+                    Text = $"{currentType} ({count})",
+                    Width = 140,
+                    Foreground = Brushes.White,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+
+                var progressBar = new ProgressBar
+                {
+                    Width = 200,
+                    Height = 20,
+                    Value = procent,
+                    Maximum = 100,
+                    Margin = new Thickness(10, 0, 0, 0),
+                    Foreground = new SolidColorBrush(Color.FromRgb(95, 42, 135)),
+                    Background = Brushes.LightGray
+                };
+
+                stack.Children.Add(textBlock);
+                stack.Children.Add(progressBar);
+
+                TipuriPanel.Children.Add(stack);
+            }
+        }
+
+
+
+
+
         private void AddAbonament_Click(object sender, RoutedEventArgs e)
         {
             var addWindow = new AbonamentEditWindow();
@@ -191,7 +267,7 @@ namespace PIUG
         {
             if (AbonamenteListBox.SelectedItem is Abonament selected)
             {
-                var result = MessageBox.Show($"Sigur doriți să ștergeți abonamentul [{selected.ID}] {selected.PersonName}?","Confirmare ștergere", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                var result = MessageBox.Show($"Sigur doriți să ștergeți abonamentul [{selected.ID}] {selected.PersonName}?", "Confirmare ștergere", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (result == MessageBoxResult.Yes)
                 {
