@@ -128,7 +128,7 @@ namespace PIUG
                 {
                     try
                     {
-                        abonamente.Add(Abonament.FromFileLine(line));
+                        abonamente.Add(Abonament.CitireDinFisier(line));
                     }
                     catch
                     {
@@ -169,7 +169,7 @@ namespace PIUG
         }
         private void SaveAbonamente()
         {
-            File.WriteAllLines(filePath, abonamente.Select(a => a.ToFileLine()));
+            File.WriteAllLines(filePath, abonamente.Select(a => a.ScriereInFisier()));
         }
 
         private void UpdateProgressBarChart()
@@ -333,7 +333,7 @@ namespace PIUG
 
                     foreach (Abonament item in AbonamenteListBox.Items)
                     {
-                        lines.Add(item.ToFileLine());
+                        lines.Add(item.ScriereInFisier());
                     }
 
                     File.WriteAllLines(saveFileDialog.FileName, lines);

@@ -19,12 +19,12 @@ namespace PIUG
             return $"[{ID}] {PersonName} - {Type}   [  {StartDate:dd/MM/yyyy} - {EndDate:dd/MM/yyyy}  ]";
         }
 
-        public string ToFileLine()
+        public string ScriereInFisier()
         {
             return $"{ID},{PersonName},{Type},{StartDate:yyyy-MM-dd},{EndDate:yyyy-MM-dd}";
         }
 
-        public static Abonament FromFileLine(string line)
+        public static Abonament CitireDinFisier(string line)
         {
             var parts = line.Split(',');
 

@@ -122,7 +122,7 @@ namespace PIUG
                 {
                     try
                     {
-                        angajati.Add(Angajat.FromFileLine(line));
+                        angajati.Add(Angajat.CitireDinFisier(line));
                     }
                     catch
                     {
@@ -139,7 +139,7 @@ namespace PIUG
 
         private void SaveAngajati()
         {
-            File.WriteAllLines(filePath, angajati.Select(a => a.ToFileLine()));
+            File.WriteAllLines(filePath, angajati.Select(a => a.ScriereInFisier()));
         }
 
 
